@@ -41,24 +41,6 @@
 | `curl -s "https://crt.sh/?q=${TARGET}&output=json" \| jq -r '.[] \| "\(.name_value)\n\(.common_name)"' \| sort -u` | Certificate Transparency. |
 | `cat sources.txt \| while read source; do theHarvester -d "${TARGET}" -b $source -f "${source}-${TARGET}";done` | Searching for subdomains and other information on the sources provided in the source.txt list. |
 
-#### Sources.txt
-```txt
-baidu
-bufferoverun
-crtsh
-hackertarget
-otx
-projecdiscovery
-rapiddns
-sublist3r
-threatcrowd
-trello
-urlscan
-vhost
-virustotal
-zoomeye
-```
-
 ---
 ## Passive Infrastructure Identification
 
@@ -109,6 +91,5 @@ zoomeye
 
 | **Resource/Command** | **Description** |
 |-|-|
-| `ZAP` | [https://www.zaproxy.org/](https://www.zaproxy.org/) |
 | `ffuf -recursion -recursion-depth 1 -u http://192.168.10.10/FUZZ -w /opt/useful/SecLists/Discovery/Web-Content/raft-small-directories-lowercase.txt` | Discovering files and folders that cannot be spotted by browsing the website.
 | `ffuf -w ./folders.txt:FOLDERS,./wordlist.txt:WORDLIST,./extensions.txt:EXTENSIONS -u http://www.target.domain/FOLDERS/WORDLISTEXTENSIONS` | Mutated bruteforcing against the target web server. |
